@@ -1,4 +1,4 @@
-import Url from "../models/Url"
+import Url from "../models/Url.js"
 import { nanoid } from "nanoid"
 
 export const shortenUrl = async (req, res) => {
@@ -34,7 +34,7 @@ export const shortenUrl = async (req, res) => {
     }
 }
 
-export const redirect = (req, res) => {
+export const redirect = async(req, res) => {
     try {
         const { shortId } = req.params;
         const url = await Url.findOne({ shortId });
